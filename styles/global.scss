@@ -14,5 +14,6 @@ body {
 
 .my-title {
   @apply shadow-md text-3xl mt-3 bg-green-800 text-white rounded-md p-3;
-
 }
+
+@import "react-tags";
