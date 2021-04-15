@@ -1,5 +1,4 @@
 import Head from "next/head";
-import axios from "axios";
 import TagBar from "../components/TagBar";
 
 export default function Home(props) {
@@ -11,7 +10,7 @@ export default function Home(props) {
       </Head>
       <main className="w-full flex flex-col">
         <h1 className="my-title">Recipe Chef </h1>
-        <div className="flex justify-center mt-10">
+        <div className="flex flex-col mt-10">
           <TagBar spoonacularKey={props.spoonacularKey} />
         </div>
       </main>
