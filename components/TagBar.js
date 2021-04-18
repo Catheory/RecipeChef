@@ -57,7 +57,6 @@ class TagBar extends React.Component {
   }
 
   async onAddition(tag) {
-    debugger;
     const tags = [...this.state.tags, tag];
     const ingredients = tags.reduce((accum, currentTag) => {
       return accum + `${currentTag.name},`;

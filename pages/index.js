@@ -8,7 +8,7 @@ export default function Home(props) {
         <title>Recipe Chef</title>
         <link rel="icon" href="/olive.png" />
       </Head>
-      <main className="w-full flex flex-col">
+      <main className="flex flex-col w-full">
         <h1 className="my-title">Recipe Chef </h1>
         <div className="flex flex-col mt-10">
           <TagBar spoonacularKey={props.spoonacularKey} />
