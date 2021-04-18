@@ -57,6 +57,7 @@ class TagBar extends React.Component {
   }
 
   async onAddition(tag) {
+    debugger;
     const tags = [...this.state.tags, tag];
     const ingredients = tags.reduce((accum, currentTag) => {
       return accum + `${currentTag.name},`;
@@ -84,9 +85,10 @@ class TagBar extends React.Component {
             onInput={this.onInput}
           />
         </div>
-        <div className="">
-          <RecipeList recipes={this.state.recipes} />
-        </div>
+        <RecipeList
+          recipes={this.state.recipes}
+          spoonacularKey={this.props.spoonacularKey}
+        />
       </div>
     );
   }

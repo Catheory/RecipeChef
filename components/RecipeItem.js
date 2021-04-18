@@ -1,16 +1,23 @@
-import React from "react";
+import SingleRecipe from "./SingleRecipe";
 
 export default function RecipeItem(props) {
-  const recipe = props.recipe || "";
+  const { recipe, activeRecipeId, recipeDetail } = props;
   return (
     <>
-      {!recipe ? (
-        `no recipe`
+      <div className="flex flex-col mx-10">
+        <img
+          src={recipe.image}
+          onClick={() => {
+            props.onRecipe(recipe.id);
+          }}
+          className="my-5"
+        />
+        <h2>{recipe.title}</h2>
+      </div>
+      {recipe.id !== activeRecipeId ? (
+        ""
       ) : (
-        <div className="flex flex-col mx-10">
-          <img src={recipe.image} className="my-5" />
-          <h2>{recipe.title}</h2>
-        </div>
+        <SingleRecipe recipeDetail={recipeDetail} />
       )}
     </>
   );
