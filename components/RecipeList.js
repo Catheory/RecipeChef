@@ -13,7 +13,6 @@ class RecipeList extends React.Component {
   }
 
   async onRecipe(id) {
-    debugger;
     const { spoonacularKey } = this.props;
     const result = await axios.get(
       `https://api.spoonacular.com/recipes/${id}/information?apiKey=${spoonacularKey}&includeNutrition=true`

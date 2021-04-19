@@ -16,4 +16,8 @@ body {
   @apply shadow-md text-3xl mt-3 bg-green-800 text-white rounded-md p-3;
 }
 
+.sub-title {
+  @apply text-xl font-bold my-2;
+}
+
 @import "react-tags";

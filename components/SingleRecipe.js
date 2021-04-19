@@ -3,21 +3,37 @@ export default function SingleRecipe(props) {
   const instructions = recipeDetail.analyzedInstructions;
 
   return (
-    <div className="h-96 my-16">
+    <div className="h-screen  my-16">
       <div className="flex flex-col mx-10 left-0 absolute w-full">
         <h1 className="font-extrabold text-5xl my-5">{recipeDetail.title}</h1>
         <div className="flex flex-row mr-20">
           <div className="mr-40 my-5">
+            <h2 className="sub-title">Summary</h2>
             <div
               dangerouslySetInnerHTML={{
                 __html: recipeDetail.summary,
               }}
             ></div>
-            <ol className="list-decimal mx-4 mt-5">
-              {instructions[0].steps.map((stp) => (
-                <li key={stp.number}>{stp.step}</li>
-              ))}
-            </ol>
+            <div className="mt-8">
+              <h2 className="sub-title">Instructions</h2>
+              {!instructions[0] ? (
+                ""
+              ) : (
+                <ol className="list-decimal mx-4">
+                  {instructions[0].steps.map((stp) => (
+                    <li key={stp.number}>{stp.step}</li>
+                  ))}
+                </ol>
+              )}
+              <div className="font-bold text-lg my-8">
+                <p>For more detailed instructions, click the button below.</p>
+                <a target="_blank" href={recipeDetail.sourceUrl}>
+                  <button className="my-2 py-2 px-2 rounded focus:ring font-bold text-white bg-teal-500  hover:bg-teal-700 ">
+                    check it out
+                  </button>
+                </a>
+              </div>
+            </div>
           </div>
           <img src={recipeDetail.image} />
         </div>
