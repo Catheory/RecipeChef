@@ -3,9 +3,14 @@ export default function SingleRecipe(props) {
   const instructions = recipeDetail.analyzedInstructions;
 
   return (
-    <div className="h-screen  my-16">
-      <div className="flex flex-col mx-10 left-0 absolute w-full">
-        <h1 className="font-extrabold text-5xl my-5">{recipeDetail.title}</h1>
+    <div className="h-screen my-16">
+      <div className="flex flex-col mx-10 left-0 absolute w-full max-h-full overflow-y-scroll">
+        <div className="flex items-center justify-center max-width-90-vw">
+          <h1 className="font-extrabold text-5xl my-5 mr-5">
+            {recipeDetail.title}
+          </h1>
+          <img className="h-72" src="/eating-girl.png" />
+        </div>
         <div className="flex flex-row mr-20">
           <div className="mr-40 my-5">
             <h2 className="sub-title">Summary</h2>
