@@ -1,14 +1,15 @@
 import SingleRecipe from "./SingleRecipe";
 
 export default function RecipeItem(props) {
-  const { recipe, activeRecipeId, recipeDetail } = props;
+  const { recipe, activeRecipeId, onRecipe, recipeDetail, youtubeVideo } =
+    props;
   return (
     <>
       <div className="flex flex-col mx-10">
         <img
           src={recipe.image}
           onClick={() => {
-            props.onRecipe(recipe.id);
+            onRecipe(recipe.id);
           }}
           className="my-5"
         />
@@ -17,7 +18,7 @@ export default function RecipeItem(props) {
       {recipe.id !== activeRecipeId ? (
         ""
       ) : (
-        <SingleRecipe recipeDetail={recipeDetail} />
+        <SingleRecipe recipeDetail={recipeDetail} youtubeVideo={youtubeVideo} />
       )}
     </>
   );

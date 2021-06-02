@@ -1,6 +1,7 @@
 export default function SingleRecipe(props) {
-  const { recipeDetail } = props;
+  const { recipeDetail, youtubeVideo } = props;
   const instructions = recipeDetail.analyzedInstructions;
+  const id = youtubeVideo.id.videoId;
 
   return (
     <div className="h-screen my-16">
@@ -9,7 +10,7 @@ export default function SingleRecipe(props) {
           <h1 className="font-extrabold text-5xl my-5 mr-5">
             {recipeDetail.title}
           </h1>
-          <img className="h-72" src="/eating-girl.png" />
+          <img className="h-72" src="eating-girl.png" />
         </div>
         <div className="flex flex-row mr-20">
           <div className="mr-40 my-5">
@@ -40,7 +41,17 @@ export default function SingleRecipe(props) {
               </div>
             </div>
           </div>
-          <img src={recipeDetail.image} />
+          <div>
+            <iframe
+              width="580"
+              height="350"
+              src={`https://www.youtube.com/embed/${id}`}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
       </div>
     </div>

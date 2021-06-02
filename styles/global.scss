@@ -28,4 +28,36 @@ body {
   }
 }
 
+.multiselect {
+  width: 200px;
+  position: relative;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.checkboxes-container {
+  overflow-y: hidden;
+  position: relative;
+  height: 200px;
+}
+
+#checkboxes {
+  border: 1px #dadada solid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 0.3s;
+}
+
+.checkbox-100 {
+  transform: translateY(0);
+}
+
+.checkbox-0 {
+  transform: translateY(-100%);
+}
+
 @import "react-tags";

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import TagBar from "../components/TagBar";
+import App from "../components/App";
 
 export default function Home(props) {
   return (
@@ -11,7 +11,10 @@ export default function Home(props) {
       <main className="flex flex-col w-full">
         <h1 className="my-title">Recipe Chef </h1>
         <div className="flex flex-col mt-10">
-          <TagBar spoonacularKey={props.spoonacularKey} />
+          <App
+            spoonacularKey={props.spoonacularKey}
+            youtubeKey={props.youtubeKey}
+          />
         </div>
       </main>
     </>
@@ -30,12 +33,13 @@ export default function Home(props) {
 //   }
 // }
 
-const { SPOONACULAR_KEY } = process.env;
+const { SPOONACULAR_KEY, YOUTUBE_KEY } = process.env;
 
 export async function getServerSideProps(context) {
   return {
     props: {
       spoonacularKey: SPOONACULAR_KEY,
+      youtubeKey: YOUTUBE_KEY,
     },
   };
 }
