@@ -5,12 +5,14 @@ export default function Home(props) {
   return (
     <>
       <Head>
-        <title>Recipe Chef</title>
-        <link rel="icon" href="/olive.png" />
+        <title>Chow Meow Now!</title>
+        <link rel="icon" href="/noodles.png" />
       </Head>
       <main className="flex flex-col w-full">
-        <h1 className="my-title">Recipe Chef </h1>
-        <div className="flex flex-col mt-10">
+        <h1 className="absolute w-full flex justify-center bg-opacity-25 bg-white">
+          <img src="chowmeow.png" className="my-3 w-64 h-18" />
+        </h1>
+        <div className="">
           <App
             spoonacularKey={props.spoonacularKey}
             youtubeKey={props.youtubeKey}

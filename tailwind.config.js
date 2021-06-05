@@ -33,6 +33,16 @@ module.exports = {
       "1/2": "50%",
       "3/4": "75%",
     },
+
+    borderRadius: {
+      none: "0",
+      large: "600px",
+      medium: "280px",
+      lg: "0.5rem",
+      md: "0.375rem",
+      sm: "0.125rem",
+      full: "9999px",
+    },
   },
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: false, // or 'media' or 'class'

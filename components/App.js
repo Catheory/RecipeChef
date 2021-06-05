@@ -160,18 +160,24 @@ class App extends React.Component {
   }
 
   render() {
-    const { tags, suggestions, recipes, diets, expanded } = this.state;
+    const { tags, suggestions, allRecipes, recipes, diets, expanded } =
+      this.state;
 
     return (
       <div className="app" onClick={this.checkCollapseFilter}>
-        <div className="searchBar">
+        <div
+          className="searchBar pt-28 pb-48 "
+          style={{
+            backgroundImage: ["url(search-bg.jpg)"],
+          }}
+        >
           <div
-            className="h-screen bg-local bg-center bg-contain bg-no-repeat bg"
+            className="searchBar-veggies h-screen bg-local bg-center bg-contain bg-no-repeat "
             style={{
               backgroundImage: ["url(veggies.png)"],
             }}
           >
-            <div className="w-1/3 bg-white mx-auto my-96">
+            <div className="w-96 bg-white mx-auto">
               <ReactTags
                 ref={this.reactTags}
                 tags={tags}
@@ -182,7 +188,9 @@ class App extends React.Component {
               />
             </div>
           </div>
+        </div>
 
+        <div className="flex justify-center relative">
           <img src="thinking-cook.png" />
         </div>
 
@@ -242,11 +250,15 @@ class App extends React.Component {
             youtubeKey={this.props.youtubeKey}
           />
         </div>
-        <img
-          src="down-chevron.png"
-          className="max-w-1/32"
-          onClick={this.showMoreRecipes}
-        />
+        {allRecipes.length > 12 ? (
+          <img
+            src="down-chevron.png"
+            className="max-w-1/32"
+            onClick={this.showMoreRecipes}
+          />
+        ) : (
+          ""
+        )}
       </div>
     );
   }
