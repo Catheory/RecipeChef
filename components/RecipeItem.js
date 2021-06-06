@@ -11,7 +11,7 @@ export default function RecipeItem(props) {
           onClick={() => {
             onRecipe(recipe.id);
           }}
-          className="my-5"
+          className="recipePic my-5"
         />
         <h2>{recipe.title}</h2>
       </div>

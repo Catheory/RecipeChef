@@ -164,101 +164,115 @@ class App extends React.Component {
       this.state;
 
     return (
-      <div className="app" onClick={this.checkCollapseFilter}>
+      <div
+        className="app bg-contain"
+        style={{
+          backgroundImage: ["url(lemon-bg.jpg)"],
+        }}
+      >
         <div
-          className="searchBar pt-28 pb-48 "
-          style={{
-            backgroundImage: ["url(search-bg.jpg)"],
-          }}
+          className="app-top overflow-x-hidden "
+          onClick={this.checkCollapseFilter}
         >
           <div
-            className="searchBar-veggies h-screen bg-local bg-center bg-contain bg-no-repeat "
+            className="searchBar"
             style={{
-              backgroundImage: ["url(veggies.png)"],
+              backgroundImage: ["url(search-bg.jpg)"],
             }}
           >
-            <div className="w-96 bg-white mx-auto">
-              <ReactTags
-                ref={this.reactTags}
-                tags={tags}
-                suggestions={suggestions}
-                onDelete={this.onDelete}
-                onAddition={this.onAddition}
-                onInput={this.onInput}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="flex justify-center relative">
-          <img src="thinking-cook.png" />
-        </div>
-
-        <div className="flex justify-between">
-          <div className="multiselect">
             <div
-              className="relative flex justify-between"
-              onClick={this.showCheckBoxes}
+              className="searchBar-veggies h-screen bg-local bg-center bg-contain bg-no-repeat "
+              style={{
+                backgroundImage: ["url(veggies.png)"],
+              }}
             >
-              <span>Select Diet Type</span>
-              <img src="caret-down.png" className="max-w-1/8" />
-            </div>
-
-            <div className="checkboxes-container ">
-              <div
-                id="checkboxes"
-                className={
-                  "bg-white border-0 " +
-                  (expanded ? "checkbox-100" : "checkbox-0")
-                }
-              >
-                {dietCategories.map((category) => (
-                  <div key={category} className="select">
-                    <input
-                      type="checkbox"
-                      name={category}
-                      checked={this.state[category]}
-                      onChange={() => this.onChangeFilter(category)}
-                    />
-                    <label
-                      htmlFor={category}
-                      onClick={() => this.onChangeFilter(category)}
-                    >
-                      {category}
-                    </label>
-                  </div>
-                ))}
+              <div className="w-96 bg-white mx-auto">
+                <ReactTags
+                  ref={this.reactTags}
+                  tags={tags}
+                  suggestions={suggestions}
+                  onDelete={this.onDelete}
+                  onAddition={this.onAddition}
+                  onInput={this.onInput}
+                  placeholderText="Add ingredients..."
+                />
               </div>
             </div>
           </div>
-          <div>
-            {diets.map((diet) => (
-              <span
-                key={diet}
-                className="rounded-lg px-2 m-1 border-4 border-indigo-500"
-              >
-                {diet}
-              </span>
-            ))}
-          </div>
         </div>
 
-        <div>
-          <RecipeList
-            recipes={recipes}
-            spoonacularKey={this.props.spoonacularKey}
-            youtubeKey={this.props.youtubeKey}
-          />
+        <div className="app-bottom">
+          <div className="thinking-cook">
+            <img src="thinking-cook.png" />
+          </div>
+          <div className="recipes">
+            <div className="filter">
+              <div>
+                {diets.map((diet) => (
+                  <span
+                    key={diet}
+                    className="rounded-lg px-2 m-1 border-4 border-indigo-500"
+                  >
+                    {diet}
+                  </span>
+                ))}
+              </div>
+              <div className="multiselect">
+                <div className="selectBox" onClick={this.showCheckBoxes}>
+                  <span>Select Diet Type</span>
+                  <img src="caret-down.png" className="max-w-1/8" />
+                </div>
+
+                <div className="checkboxes-container ">
+                  <div
+                    id="checkboxes"
+                    className={
+                      "bg-white border-0 " +
+                      (expanded ? "checkbox-100" : "checkbox-0")
+                    }
+                  >
+                    {dietCategories.map((category) => (
+                      <div key={category} className="select">
+                        <input
+                          type="checkbox"
+                          name={category}
+                          checked={this.state[category]}
+                          onChange={() => this.onChangeFilter(category)}
+                        />
+                        <label
+                          htmlFor={category}
+                          onClick={() => this.onChangeFilter(category)}
+                        >
+                          {category}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="recipeList">
+              <RecipeList
+                recipes={recipes}
+                spoonacularKey={this.props.spoonacularKey}
+                youtubeKey={this.props.youtubeKey}
+              />
+
+              <div>
+                {allRecipes.length > 12 ? (
+                  <img
+                    src="down-chevron.png"
+                    className="max-w-1/32"
+                    onClick={this.showMoreRecipes}
+                  />
+                ) : (
+                  ""
+                )}
+              </div>
+            </div>
+          </div>
         </div>
-        {allRecipes.length > 12 ? (
-          <img
-            src="down-chevron.png"
-            className="max-w-1/32"
-            onClick={this.showMoreRecipes}
-          />
-        ) : (
-          ""
-        )}
       </div>
     );
   }

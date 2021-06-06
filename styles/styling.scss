@@ -1,0 +1,109 @@
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app-top {
+  height: auto;
+}
+.searchBar {
+  background-position: left top;
+  background-size: 100% 100%;
+  padding-top: 120px;
+  padding-bottom: 210px;
+  border-bottom-left-radius: 50% 10%;
+  border-bottom-right-radius: 50% 10%;
+  margin-right: -100px;
+  margin-left: -100px;
+}
+
+.searchBar-veggies {
+  padding-top: calc(50vh - 30px);
+}
+
+.thinking-cook {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -240px;
+}
+
+.my-title {
+  @apply shadow-md text-3xl mt-3 bg-green-800 text-white rounded-md p-3;
+}
+
+.sub-title {
+  @apply text-xl font-bold my-2;
+}
+
+@layer utilities {
+  .max-width-90-vw {
+    max-width: 90vw;
+  }
+}
+
+.recipes {
+  position: relative;
+  top: -200px;
+}
+
+.filter {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: -40px;
+}
+
+.selectBox {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 200px;
+}
+
+.checkboxes-container {
+  overflow-y: hidden;
+  position: relative;
+  height: 200px;
+  width: 200px;
+}
+
+#checkboxes {
+  border: 1px #dadada solid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 0.3s;
+}
+
+.checkbox-100 {
+  transform: translateY(0);
+}
+
+.checkbox-0 {
+  transform: translateY(-100%);
+}
+
+.recipeList {
+  position: relative;
+  top: -100px;
+}
+
+.recipePic {
+  border-radius: 10% 10%;
+}
+
+@import "react-tags";
