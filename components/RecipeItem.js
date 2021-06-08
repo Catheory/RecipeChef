@@ -6,13 +6,15 @@ export default function RecipeItem(props) {
   return (
     <>
       <div className="flex flex-col mx-10">
-        <img
-          src={recipe.image}
-          onClick={() => {
-            onRecipe(recipe.id);
-          }}
-          className="recipePic my-5"
-        />
+        <div className="img-hover-zoom">
+          <img
+            src={recipe.image}
+            onClick={() => {
+              onRecipe(recipe.id);
+            }}
+            className="recipePic"
+          />
+        </div>
         <h2>{recipe.title}</h2>
       </div>
       {recipe.id !== activeRecipeId ? (

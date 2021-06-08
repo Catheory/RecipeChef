@@ -167,13 +167,11 @@ class App extends React.Component {
       <div
         className="app bg-contain"
         style={{
-          backgroundImage: ["url(lemon-bg.jpg)"],
+          backgroundImage: ["url(ios-linen-orange.png)"],
         }}
+        onClick={this.checkCollapseFilter}
       >
-        <div
-          className="app-top overflow-x-hidden "
-          onClick={this.checkCollapseFilter}
-        >
+        <div className="app-top overflow-x-hidden ">
           <div
             className="searchBar"
             style={{
@@ -201,13 +199,13 @@ class App extends React.Component {
           </div>
         </div>
 
-        <div className="app-bottom">
+        <div className="app-bottom text-white">
           <div className="thinking-cook">
             <img src="thinking-cook.png" />
           </div>
           <div className="recipes">
             <div className="filter">
-              <div>
+              <div className="chosendiets">
                 {diets.map((diet) => (
                   <span
                     key={diet}
@@ -259,7 +257,7 @@ class App extends React.Component {
                 youtubeKey={this.props.youtubeKey}
               />
 
-              <div>
+              <div className="cursor-pointer">
                 {allRecipes.length > 12 ? (
                   <img
                     src="down-chevron.png"
