@@ -59,7 +59,7 @@ class RecipeList extends React.Component {
           <div className="flex flex-col my-4">
             <div className="grid grid-cols-3 xl:grid-cols-3 gap-4 2xl:grid-cols-4">
               {recipes.map((recipe) => (
-                <div key={recipe.id}>
+                <div key={recipe.id} className="recipeitem">
                   <RecipeItem
                     recipe={recipe}
                     onRecipe={this.onRecipe}

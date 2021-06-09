@@ -15,7 +15,7 @@ export default function RecipeItem(props) {
             className="recipePic"
           />
         </div>
-        <h2>{recipe.title}</h2>
+        <span className="recipetitle">{recipe.title}</span>
       </div>
       {recipe.id !== activeRecipeId ? (
         ""

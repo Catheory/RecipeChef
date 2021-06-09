@@ -14,6 +14,10 @@ body {
   box-sizing: border-box;
 }
 
+label {
+  margin: 5px;
+}
+
 .app-top {
   height: auto;
 }
@@ -71,6 +75,14 @@ body {
   cursor: default;
 }
 
+.diet {
+  border-width: 3px;
+  border-color: #f97a1ff2;
+  border-radius: 10px;
+  margin: 3px;
+  padding: 5px;
+}
+
 .multiselect {
   margin-right: 110px;
   cursor: pointer;
@@ -83,7 +95,7 @@ body {
   width: 200px;
   padding: 5px;
   padding-inline-start: 10px;
-  background-color: #f97a1ff2;
+  background-color: #ff6d18;
   border-radius: 6px;
 }
 
@@ -95,16 +107,19 @@ body {
 }
 
 #checkboxes {
-  border: 1px #dadada solid;
   position: absolute;
   top: 0;
   left: 3%;
-  width: 94%;
-  padding: 6px;
+  width: 95%;
+  padding: 5px;
   transition: transform 0.3s;
-  background-color: #ffab54;
+  background-color: #ffac56;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+.filterinput {
+  margin: 5px;
 }
 
 .checkbox-100 {
@@ -127,18 +142,52 @@ body {
 
 .img-hover-zoom img {
   cursor: pointer;
-  transition: transform 0.35s ease-in-out;
+  transition: transform 0.35s ease-in-out, border 0.1s;
 }
 
 .img-hover-zoom:hover img {
   transform: scale(1.115);
+  transform-origin: center center;
   border-style: solid;
-  border-width: 4px;
+  border-width: 2px;
   border-color: rgb(255, 153, 0);
 }
 
 .recipePic {
   border-radius: 25px;
+}
+
+.plus {
+  max-width: 5%;
+  max-height: 5%;
+  display: block;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  cursor: pointer;
+}
+.loadmore img {
+  transition: transform 0.3s ease-in-out;
+}
+.loadmore img:hover {
+  transform: scale(1.1);
+  transform-origin: center center;
+  border-style: solid;
+}
+
+.recipeitem {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.recipetitle {
+  max-width: 85%;
+  margin-top: -12px;
+}
+
+.footer {
+  height: 200px;
 }
 
 @import "react-tags";

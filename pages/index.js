@@ -23,24 +23,12 @@ export default function Home(props) {
   );
 }
 
-// connect to mongodb here
-// import { connectToDatabase } from '../util/mongodb';
-// export async function getServerSideProps(context) {
-//   const { client } = await connectToDatabase()
-
-//   const isConnected = await client.isConnected()
-
-//   return {
-//     props: { isConnected },
-//   }
-// }
-
-const { SPOONACULAR_KEY2, YOUTUBE_KEY } = process.env;
+const { SPOONACULAR_KEY, YOUTUBE_KEY } = process.env;
 
 export async function getServerSideProps(context) {
   return {
     props: {
-      spoonacularKey: SPOONACULAR_KEY2,
+      spoonacularKey: SPOONACULAR_KEY,
       youtubeKey: YOUTUBE_KEY,
     },
   };

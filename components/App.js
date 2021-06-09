@@ -207,10 +207,7 @@ class App extends React.Component {
             <div className="filter">
               <div className="chosendiets">
                 {diets.map((diet) => (
-                  <span
-                    key={diet}
-                    className="rounded-lg px-2 m-1 border-4 border-indigo-500"
-                  >
+                  <span key={diet} className="diet">
                     {diet}
                   </span>
                 ))}
@@ -218,21 +215,19 @@ class App extends React.Component {
               <div className="multiselect">
                 <div className="selectBox" onClick={this.showCheckBoxes}>
                   <span>Select Diet Type</span>
-                  <img src="caret-down.png" className="max-w-1/8" />
+                  <img src="caret-down.png" className="max-w-1/8 m-1" />
                 </div>
 
                 <div className="checkboxes-container ">
                   <div
                     id="checkboxes"
-                    className={
-                      "bg-white border-0 " +
-                      (expanded ? "checkbox-100" : "checkbox-0")
-                    }
+                    className={expanded ? "checkbox-100" : "checkbox-0"}
                   >
                     {dietCategories.map((category) => (
                       <div key={category} className="select">
                         <input
                           type="checkbox"
+                          className="filterinput"
                           name={category}
                           checked={this.state[category]}
                           onChange={() => this.onChangeFilter(category)}
@@ -257,11 +252,11 @@ class App extends React.Component {
                 youtubeKey={this.props.youtubeKey}
               />
 
-              <div className="cursor-pointer">
+              <div className="loadmore">
                 {allRecipes.length > 12 ? (
                   <img
-                    src="down-chevron.png"
-                    className="max-w-1/32"
+                    src="plus.png"
+                    className="plus"
                     onClick={this.showMoreRecipes}
                   />
                 ) : (
@@ -269,6 +264,19 @@ class App extends React.Component {
                 )}
               </div>
             </div>
+          </div>
+        </div>
+        <div
+          className="footer"
+          style={{
+            backgroundImage: ["url(footer.jpg)"],
+          }}
+        >
+          <div className="flex flex-row">
+            <a href="https://www.linkedin.com/in/cathysiruisun">
+              <img src="linkedin-logo.png" />
+            </a>
+            <span>Learn more about me</span>
           </div>
         </div>
       </div>
