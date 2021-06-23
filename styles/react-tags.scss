@@ -1,8 +1,10 @@
 .react-tags {
   position: relative;
   padding: 6px 0 0 6px;
-  border: 1px solid #d1d1d1;
-  border-radius: 1px;
+  border: 4px dashed #ff6f1c;
+  transition: border 0.2s;
+  background-color: white;
+  border-radius: 20px;
 
   /* shared font styles */
   font-size: 1em;
@@ -13,7 +15,7 @@
 }
 
 .react-tags.is-focused {
-  border-color: #b1b1b1;
+  border-color: #ffe815;
 }
 
 .react-tags__selected {
@@ -26,7 +28,7 @@
   margin: 0 6px 6px 0;
   padding: 6px 8px;
   border: 1px solid #d1d1d1;
-  border-radius: 2px;
+  border-radius: 10px;
   background: #f1f1f1;
 
   /* match the font styles */

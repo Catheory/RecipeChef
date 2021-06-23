@@ -21,7 +21,7 @@ class RecipeList extends React.Component {
     if (isActive && activeRecipeId === id) {
       this.setState({
         activeRecipeId: "",
-        isAtive: false,
+        isActive: false,
         recipeDetail: {},
         youtubeVideo: {},
       });
@@ -57,7 +57,7 @@ class RecipeList extends React.Component {
           </span>
         ) : (
           <div className="flex flex-col my-4">
-            <div className="grid grid-cols-3 xl:grid-cols-3 gap-4 2xl:grid-cols-4">
+            <div className="md:grid grid-cols-3 xl:grid-cols-3 gap-4 2xl:grid-cols-4">
               {recipes.map((recipe) => (
                 <div key={recipe.id} className="recipeitem">
                   <RecipeItem

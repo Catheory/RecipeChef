@@ -179,12 +179,12 @@ class App extends React.Component {
             }}
           >
             <div
-              className="searchBar-veggies h-screen bg-local bg-center bg-contain bg-no-repeat "
+              className="searchBar-veggies bg-local bg-no-repeat flex flex-col justify-center"
               style={{
                 backgroundImage: ["url(veggies.png)"],
               }}
             >
-              <div className="w-96 bg-white mx-auto">
+              <div className="searchBar-tags mx-auto">
                 <ReactTags
                   ref={this.reactTags}
                   tags={tags}
@@ -267,16 +267,24 @@ class App extends React.Component {
           </div>
         </div>
         <div
-          className="footer"
+          className="footer-container"
           style={{
             backgroundImage: ["url(footer.jpg)"],
           }}
         >
-          <div className="flex flex-row">
-            <a href="https://www.linkedin.com/in/cathysiruisun">
-              <img src="linkedin-logo.png" />
-            </a>
-            <span>Learn more about me</span>
+          <div>
+            <h1 className="text-xl flex flex-row justify-center">About me</h1>
+            <div className="footericons flex flex-row justify-center">
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/in/cathysiruisun"
+              >
+                <img src="linkedin-logo.png" />
+              </a>
+              <a target="_blank" href="https://github.com/Catheory/RecipeChef">
+                <img src="github.png" />
+              </a>
+            </div>
           </div>
         </div>
       </div>

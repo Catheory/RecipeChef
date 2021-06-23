@@ -20,7 +20,11 @@ export default function RecipeItem(props) {
       {recipe.id !== activeRecipeId ? (
         ""
       ) : (
-        <SingleRecipe recipeDetail={recipeDetail} youtubeVideo={youtubeVideo} />
+        <SingleRecipe
+          onRecipe={onRecipe}
+          recipeDetail={recipeDetail}
+          youtubeVideo={youtubeVideo}
+        />
       )}
     </>
   );

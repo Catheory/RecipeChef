@@ -1,5 +1,6 @@
 @tailwind utilities;
 
+/*For desktop: */
 html,
 body {
   padding: 0;
@@ -18,6 +19,17 @@ label {
   margin: 5px;
 }
 
+button {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+iframe {
+  width: 720px;
+  height: 400px;
+}
+
 .app-top {
   height: auto;
 }
@@ -32,10 +44,6 @@ label {
   margin-left: -100px;
 }
 
-.searchBar-veggies {
-  padding-top: calc(50vh - 30px);
-}
-
 .thinking-cook {
   display: flex;
   justify-content: center;
@@ -43,49 +51,18 @@ label {
   top: -240px;
 }
 
-.my-title {
-  @apply shadow-md text-3xl mt-3 bg-green-800 text-white rounded-md p-3;
-}
-
-.sub-title {
-  @apply text-xl font-bold my-2;
-}
-
-@layer utilities {
-  .max-width-90-vw {
-    max-width: 90vw;
-  }
-}
-
 .recipes {
   position: relative;
   top: -200px;
-}
-
-.filter {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  top: -40px;
-}
-
-.chosendiets {
-  margin-left: 40px;
-  cursor: default;
 }
 
 .diet {
   border-width: 3px;
   border-color: #f97a1ff2;
   border-radius: 10px;
-  margin: 3px;
+  margin: 5px;
   padding: 5px;
-}
-
-.multiselect {
-  margin-right: 110px;
-  cursor: pointer;
+  white-space: pre;
 }
 
 .selectBox {
@@ -97,13 +74,6 @@ label {
   padding-inline-start: 10px;
   background-color: #ff6d18;
   border-radius: 6px;
-}
-
-.checkboxes-container {
-  overflow-y: hidden;
-  position: relative;
-  height: 200px;
-  width: 200px;
 }
 
 #checkboxes {
@@ -130,11 +100,6 @@ label {
   transform: translateY(-100%);
 }
 
-.recipeList {
-  position: relative;
-  top: -100px;
-}
-
 .img-hover-zoom {
   height: 200px;
   margin-bottom: 60px;
@@ -158,13 +123,10 @@ label {
 }
 
 .plus {
-  max-width: 5%;
-  max-height: 5%;
-  display: block;
+  max-width: 20vw;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
   cursor: pointer;
 }
 .loadmore img {
@@ -176,18 +138,159 @@ label {
   border-style: solid;
 }
 
-.recipeitem {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
 .recipetitle {
   max-width: 85%;
   margin-top: -12px;
 }
 
-.footer {
+.footer-container {
+  background-size: cover;
+  position: relative;
+  padding-bottom: 5vh;
+}
+
+.footericons img {
+  width: 50px;
+  max-width: 25vw;
+  margin: 15px;
+}
+
+.singlerecipe {
+  left: -30px;
+  margin: 60px;
+  padding: 30px;
+  width: 96%;
+  border: 4px dashed #f97a1ff2;
+  border-radius: 20px;
+  text-align: justify;
+  background-color: rgba(0, 0, 0, 0.24);
+}
+
+.checkbutton {
+  background-color: #ff6d18;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.checkbutton:hover {
+  background-color: #d4601c;
+}
+
+.searchBar-veggies {
+  height: 100vh;
+  background-size: contain;
+  background-position: center;
+}
+
+.searchBar-tags {
+  width: 500px;
+  max-width: 55vw;
+}
+
+.filter {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: -40px;
+}
+
+.chosendiets {
+  margin-left: 40px;
+  cursor: default;
+}
+
+.multiselect {
+  margin-right: 110px;
+  cursor: pointer;
+}
+
+.checkboxes-container {
+  overflow-y: hidden;
+  position: relative;
   height: 200px;
+  width: 200px;
+}
+
+.recipeList {
+  position: relative;
+  top: -100px;
+}
+
+.recipeitem {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.closebutton {
+  width: 35px;
+  max-width: 8vw;
+  top: 10px;
+  right: 10px;
+  position: absolute;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .searchBar-veggies {
+    background-size: 72%;
+    height: 50vh;
+  }
+
+  .filter {
+    position: relative;
+    padding-top: 2vh;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .chosendiets {
+    margin-left: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    place-items: center;
+  }
+
+  .multiselect {
+    margin-right: 0px;
+  }
+
+  .checkboxes-container {
+    height: 140px;
+  }
+
+  .recipeList {
+    top: 0px;
+  }
+  .recipetitle {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    font-size: 23px;
+  }
+
+  .singlerecipe-container {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+  }
+
+  .singlerecipe {
+    left: 0px;
+    margin: 0px;
+    width: 100%;
+    background-image: url("../public/ios-linen-orange.png");
+  }
+
+  .recipeContent {
+    align-items: center;
+  }
+
+  iframe {
+    max-width: 384px;
+  }
 }
 
 @import "react-tags";
