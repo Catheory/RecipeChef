@@ -10,7 +10,7 @@ export default function Home(props) {
       </Head>
       <main className="flex flex-col w-full overflow-hidden">
         <h1 className="absolute w-full flex justify-center bg-opacity-25 bg-white">
-          <img src="chowmeow.png" className="my-3 w-64 h-18" />
+          <img src="chowMeow.png" className="my-3 w-64 h-18" />
         </h1>
         <div>
           <App
