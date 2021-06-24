@@ -273,7 +273,6 @@ class App extends React.Component {
           }}
         >
           <div>
-            <h1 className="text-xl flex flex-row justify-center">About me</h1>
             <div className="footericons flex flex-row justify-center">
               <a
                 target="_blank"

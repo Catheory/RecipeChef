@@ -70,7 +70,6 @@ export default function SingleRecipe(props) {
           </div>
         )}
       </div>
-      )
     </div>
   );
 }
