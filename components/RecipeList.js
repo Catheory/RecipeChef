@@ -8,6 +8,7 @@ class RecipeList extends React.Component {
     this.state = {
       activeRecipeId: "",
       isActive: false,
+      isLoading: false,
       recipeDetail: {},
       youtubeVideo: {},
       youtubeKey: this.props.youtubeKey,
@@ -18,6 +19,7 @@ class RecipeList extends React.Component {
 
   async onRecipe(id) {
     const { isActive, activeRecipeId, spoonacularKey, youtubeKey } = this.state;
+
     if (isActive && activeRecipeId === id) {
       this.setState({
         activeRecipeId: "",
@@ -26,6 +28,12 @@ class RecipeList extends React.Component {
         youtubeVideo: {},
       });
     } else {
+      this.setState({
+        isActive: true,
+        isLoading: true,
+        activeRecipeId: id,
+      });
+
       const result = await axios.get(
         `https://api.spoonacular.com/recipes/${id}/information?apiKey=${spoonacularKey}&includeNutrition=true`
       );
@@ -37,8 +45,7 @@ class RecipeList extends React.Component {
       const firstVideo = videoSearch.data.items[0];
 
       this.setState({
-        activeRecipeId: id,
-        isActive: true,
+        isLoading: false,
         recipeDetail: recipeDetail,
         youtubeVideo: firstVideo,
       });
@@ -62,6 +69,7 @@ class RecipeList extends React.Component {
                 <div key={recipe.id} className="recipeitem">
                   <RecipeItem
                     recipe={recipe}
+                    isLoading={this.state.isLoading}
                     onRecipe={this.onRecipe}
                     activeRecipeId={this.state.activeRecipeId}
                     recipeDetail={this.state.recipeDetail}

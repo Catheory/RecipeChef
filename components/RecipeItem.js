@@ -1,8 +1,15 @@
 import SingleRecipe from "./SingleRecipe";
 
 export default function RecipeItem(props) {
-  const { recipe, activeRecipeId, onRecipe, recipeDetail, youtubeVideo } =
-    props;
+  const {
+    recipe,
+    isLoading,
+    activeRecipeId,
+    onRecipe,
+    recipeDetail,
+    youtubeVideo,
+  } = props;
+
   return (
     <>
       <div className="flex flex-col mx-10">
@@ -21,6 +28,7 @@ export default function RecipeItem(props) {
         ""
       ) : (
         <SingleRecipe
+          isLoading={isLoading}
           onRecipe={onRecipe}
           recipeDetail={recipeDetail}
           youtubeVideo={youtubeVideo}
