@@ -7,6 +7,12 @@ export default function Home(props) {
       <Head>
         <title>Chow Meow Now!</title>
         <link rel="icon" href="/noodles.png" />
+        <meta name="image" property="og:image" content="/meta-image.png" />
+        <meta
+          name="description"
+          property="og:description"
+          content="Cook what's in your fridge!"
+        />
       </Head>
       <main className="flex flex-col w-full overflow-hidden">
         <h1 className="absolute w-full flex justify-center bg-opacity-25 bg-white">
