@@ -23,12 +23,12 @@ export default function Home(props) {
   );
 }
 
-const { SPOONACULAR_KEY4, YOUTUBE_KEY } = process.env;
+const { SPOONACULAR_KEY, YOUTUBE_KEY } = process.env;
 
 export async function getServerSideProps(context) {
   return {
     props: {
-      spoonacularKey: SPOONACULAR_KEY4,
+      spoonacularKey: SPOONACULAR_KEY,
       youtubeKey: YOUTUBE_KEY,
     },
   };
