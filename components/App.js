@@ -20,6 +20,7 @@ class App extends React.Component {
       allRecipes: [],
       recipes: [],
       diets: [],
+      scrolled: false,
       busy: false,
       expanded: false,
       "Gluten Free": false,
@@ -28,6 +29,7 @@ class App extends React.Component {
       Vegan: false,
     };
     this.reactTags = React.createRef();
+    this.searchRef = React.createRef();
     this.getNewRecipes = this.getNewRecipes.bind(this);
     this.showMoreRecipes = this.showMoreRecipes.bind(this);
     this.onDelete = this.onDelete.bind(this);
@@ -44,6 +46,11 @@ class App extends React.Component {
       return accum + `${currentTag.name},`;
     }, "");
     this.getNewRecipes(diets, ingredients);
+
+    window.onscroll = () =>
+      this.setState({
+        scrolled: window.scrollY > this.searchRef.current.offsetTop,
+      });
   }
 
   async getNewRecipes(diets, ingredients) {
@@ -160,8 +167,15 @@ class App extends React.Component {
   }
 
   render() {
-    const { tags, suggestions, allRecipes, recipes, diets, expanded } =
-      this.state;
+    const {
+      tags,
+      suggestions,
+      allRecipes,
+      recipes,
+      diets,
+      expanded,
+      scrolled,
+    } = this.state;
 
     return (
       <div
@@ -179,6 +193,7 @@ class App extends React.Component {
             }}
           >
             <div
+              ref={this.searchRef}
               className="searchBar-veggies bg-local bg-no-repeat flex flex-col justify-center"
               style={{
                 backgroundImage: ["url(veggies.png)"],
@@ -263,6 +278,16 @@ class App extends React.Component {
                   ""
                 )}
               </div>
+            </div>
+
+            <div id="backToTop">
+              <img
+                src="up-arrow.png"
+                style={{ display: `${scrolled ? "block" : "none"}` }}
+                onClick={() =>
+                  this.searchRef.current.scrollIntoView({ behavior: "smooth" })
+                }
+              />
             </div>
           </div>
         </div>

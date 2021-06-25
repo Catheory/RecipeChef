@@ -9,7 +9,7 @@ export default function SingleRecipe(props) {
     <div className="singlerecipe-container  h-screen md:my-16 justify-center">
       <div className="singlerecipe  absolute flex flex-col h-screen overflow-y-auto box-border">
         {isLoading ? (
-          <div className="flex flex-col items-center md:flex-row justify-center">
+          <div className="flex items-center justify-center h-full">
             <img src="loader.svg" className="loader" />
           </div>
         ) : (

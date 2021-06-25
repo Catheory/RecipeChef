@@ -156,6 +156,26 @@ iframe {
   padding-top: 20px;
 }
 
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  width: 5vw;
+  min-width: 60px;
+}
+
+#backToTop img {
+  cursor: pointer;
+  transition: transform 0.35s ease-in-out;
+}
+
+#backToTop img:hover {
+  transform: scale(1.12);
+  transform-origin: center center;
+}
+
+//elements listed below have properties for both mobile screen size settings and laptop screen size above settings
 .singlerecipe {
   left: -30px;
   margin: 60px;

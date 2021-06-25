@@ -92,8 +92,7 @@
 }
 
 .loader {
-  max-width: 200px;
-  margin-top: 15%;
+  width: 200px;
 }
 
 @media screen and (max-width: 850px) {
@@ -137,7 +136,6 @@
   }
 
   .loader {
-    max-width: 120px;
-    margin-top: 70%;
+    width: 80px;
   }
 }
