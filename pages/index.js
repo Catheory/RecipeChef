@@ -7,7 +7,11 @@ export default function Home(props) {
       <Head>
         <title>Chow Meow Now!</title>
         <link rel="icon" href="/noodles.png" />
-        <meta name="image" property="og:image" content="/meta-image.png" />
+        <meta
+          name="image"
+          property="og:image"
+          content="https://chowmeownow.com/meta-image.png"
+        />
         <meta
           name="description"
           property="og:description"
