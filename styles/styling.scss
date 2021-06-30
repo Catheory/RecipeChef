@@ -120,6 +120,8 @@ iframe {
 
 .recipePic {
   border-radius: 25px;
+  width: 312px;
+  height: 231px;
 }
 
 .plus {
@@ -167,7 +169,7 @@ iframe {
 
 #backToTop img {
   cursor: pointer;
-  transition: transform 0.35s ease-in-out;
+  transition: transform 0.25s ease-in-out;
 }
 
 #backToTop img:hover {

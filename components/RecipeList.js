@@ -34,14 +34,10 @@ class RecipeList extends React.Component {
         activeRecipeId: id,
       });
 
-      const result = await axios.get(
-        `https://api.spoonacular.com/recipes/${id}/information?apiKey=${spoonacularKey}&includeNutrition=true`
-      );
-      const recipeDetail = result.data;
+      const response = await axios.get(`api/recipeDetail?id=${id}`);
+      const recipeDetail = response.data;
 
-      const videoSearch = await axios.get(
-        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${recipeDetail.title}&key=${youtubeKey}`
-      );
+      const videoSearch = await axios.get(`api/video?q=${recipeDetail.title}`);
       const firstVideo = videoSearch.data.items[0];
 
       this.setState({

@@ -17,8 +17,8 @@ class App extends React.Component {
     this.state = {
       tags: [],
       suggestions: [],
-      allRecipes: [],
-      recipes: [],
+      allRecipes: this.props.allRecipes,
+      recipes: this.props.allRecipes.slice(0, 12),
       diets: [],
       scrolled: false,
       busy: false,
@@ -41,12 +41,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const { diets, tags } = this.state;
-    const ingredients = tags.reduce((accum, currentTag) => {
-      return accum + `${currentTag.name},`;
-    }, "");
-    this.getNewRecipes(diets, ingredients);
-
     window.onscroll = () =>
       this.setState({
         scrolled: window.scrollY > this.searchRef.current.offsetTop,
@@ -56,10 +50,10 @@ class App extends React.Component {
   async getNewRecipes(diets, ingredients) {
     const dietsStr =
       diets.reduce((accum, currentDiet) => accum + `${currentDiet},`, "") || "";
-    const { data } = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${this.props.spoonacularKey}&diet=${dietsStr}&includeIngredients=${ingredients}&instructionsRequired=true&addRecipeInformation=true&ignorePantry=false&number=200`
+    const response = await axios.get(
+      `api/recipesList?dietsStr=${dietsStr}&ingredients=${ingredients}`
     );
-    const allRecipes = data.results;
+    const allRecipes = response.data.results;
     const newRecipes = allRecipes.slice(0, 12);
     this.setState({ allRecipes, recipes: newRecipes });
   }
@@ -91,11 +85,9 @@ class App extends React.Component {
     if (!this.state.busy) {
       this.setState({ busy: true });
 
-      const result = await axios.get(
-        `https://api.spoonacular.com/food/ingredients/search?apiKey=${this.props.spoonacularKey}&query=${query}`
-      );
+      const response = await axios.get(`api/ingredient?query=${query}`);
 
-      const newSuggestions = result.data.results.map((ingredient) => {
+      const newSuggestions = response.data.results.map((ingredient) => {
         let newSuggest = {};
         newSuggest.id = ingredient.id;
         newSuggest.name = ingredient.name;
@@ -268,7 +260,8 @@ class App extends React.Component {
               />
 
               <div className="loadmore">
-                {allRecipes.length > 12 ? (
+                {allRecipes.length > 12 &&
+                recipes.length < allRecipes.length ? (
                   <img
                     src="plus.png"
                     className="plus"

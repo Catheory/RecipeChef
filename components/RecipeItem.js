@@ -12,7 +12,7 @@ export default function RecipeItem(props) {
 
   return (
     <>
-      <div className="flex flex-col mx-10">
+      <div className="flex flex-col mx-10 mb-4">
         <div className="img-hover-zoom">
           <img
             src={recipe.image}
